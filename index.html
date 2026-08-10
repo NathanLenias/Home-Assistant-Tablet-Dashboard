@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Maison</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0a1120">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="backdrop" id="bg-1"></div>
+  <div class="backdrop" id="bg-2"></div>
+  <div class="vignette"></div>
+
+  <nav class="dock" id="dock"></nav>
+
+  <aside class="rail">
+    <header class="rail-head">
+      <span class="rail-title" data-icon="home">Maison</span>
+      <span class="rail-meta">
+        <span class="rail-version" id="version"></span>
+        <span class="rail-status" id="link-status" data-icon="wifi" title="Connexion Home Assistant"></span>
+      </span>
+    </header>
+
+    <section class="now">
+      <div class="now-icon" id="now-icon"></div>
+      <div class="now-text">
+        <div class="now-temp" id="now-temp">--°</div>
+        <div class="now-desc" id="now-desc">Chargement</div>
+      </div>
+    </section>
+
+    <section class="hourly" id="hourly"></section>
+
+    <h2 class="label">Températures</h2>
+    <section class="temps" id="temps"></section>
+
+    <h2 class="label">Contrôles</h2>
+    <section class="controls" id="controls"></section>
+
+      </aside>
+
+  <main class="stage">
+    <p class="summary" id="air-line"></p>
+    <p class="clock" id="clock">--:--</p>
+    <p class="date" id="date"></p>
+  </main>
+
+  <section class="media" id="media" hidden></section>
+
+  
+  <div class="panel-host" id="panel-host" hidden>
+    <div class="panel-scrim" id="panel-scrim"></div>
+    <section class="panel" id="panel"></section>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
