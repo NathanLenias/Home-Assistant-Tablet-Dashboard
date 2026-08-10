@@ -64,6 +64,16 @@ areas, devices, registries — all available.
 2. Fill it in: token, your entities, your coordinates, your wallpapers
 3. Serve the folder, open it, done
 
+### Or run it with Docker
+
+```bash
+cp config.exemple.js config.js   # then fill it in
+docker compose up -d             # served on http://<host>:8080
+```
+
+The image is just nginx plus the static files; your `config.js` is mounted at
+runtime and never baked in, since it contains your token.
+
 The config file is the only file you should need to touch. Comments in the
 code are in French (the author is), but the code itself is small and plain.
 

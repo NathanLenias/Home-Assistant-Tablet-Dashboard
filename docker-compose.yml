@@ -1,0 +1,11 @@
+services:
+  dashboard:
+    build: .
+    container_name: ha-tablet-dashboard
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      # Your filled-in config (copied from config.exemple.js). Kept out of the
+      # image on purpose: it contains your Home Assistant token.
+      - ./config.js:/usr/share/nginx/html/config.js:ro
