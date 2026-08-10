@@ -74,6 +74,37 @@ docker compose up -d             # served on http://<host>:8080
 The image is just nginx plus the static files; your `config.js` is mounted at
 runtime and never baked in, since it contains your token.
 
+**Optional but recommended: put a password on it.** Since `config.js` holds
+your token, anyone on your LAN who can load the page can read it. To gate the
+container behind basic auth:
+
+```bash
+htpasswd -cB .htpasswd tablet        # pick a password (or use an online bcrypt generator)
+```
+
+Then add these two mounts to `docker-compose.yml`:
+
+```yaml
+    volumes:
+      - ./config.js:/usr/share/nginx/html/config.js:ro
+      - ./.htpasswd:/etc/nginx/.htpasswd:ro
+      - ./nginx-auth.conf:/etc/nginx/conf.d/default.conf:ro
+```
+
+with `nginx-auth.conf`:
+
+```nginx
+server {
+  listen 80;
+  root /usr/share/nginx/html;
+  auth_basic "Dashboard";
+  auth_basic_user_file /etc/nginx/.htpasswd;
+}
+```
+
+Your browser and kiosk app will ask for the credentials once and remember
+them (Fully Kiosk: Web Content Settings → Username/Password for HTTP Auth).
+
 The config file is the only file you should need to touch. Comments in the
 code are in French (the author is), but the code itself is small and plain.
 
