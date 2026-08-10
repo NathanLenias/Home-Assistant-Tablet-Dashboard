@@ -8,7 +8,15 @@ locally over its WebSocket API, so every tap is instant.
 > Shared as-is. This runs my home every day, but I make no promise of support,
 > features or fixes. Fork away.
 
-![screenshot placeholder](screenshot.png)
+![Home screen](screenshots/home.png)
+
+| | |
+|---|---|
+| ![Music](screenshots/music.png) | ![Vacuum](screenshots/vacuum.png) |
+| ![Lights](screenshots/lights.png) | ![Thermostat](screenshots/heat.png) |
+
+*Screenshots are from my own setup, which includes a couple of extras not in
+this repo (a local transit section, and the little mascot). See the FAQ.*
 
 ## Why a plain page?
 
